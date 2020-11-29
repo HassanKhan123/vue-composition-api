@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { reactive, toRefs, ref, computed } from 'vue';
+import { reactive, toRefs, ref, computed, watch } from 'vue';
 
 export default {
   setup() {
@@ -28,6 +28,13 @@ export default {
     function setNewAge() {
       user.age = 32;
     }
+
+    watch([firstName, lastName], (newValues, oldValues) => {
+      console.log('old first name', oldValues[0]);
+      console.log('new first name', newValues[0]);
+      console.log('old last name', oldValues[1]);
+      console.log('new last name', newValues[1]);
+    });
 
     const uName = computed(() => {
       return firstName.value + ' ' + lastName.value;
