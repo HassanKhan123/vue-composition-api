@@ -11,7 +11,19 @@
 </template>
 
 <script>
-import { reactive, toRefs, ref, computed, watch } from 'vue';
+import {
+  reactive,
+  toRefs,
+  ref,
+  computed,
+  watch,
+  onBeforeMount,
+  onMounted,
+  onBeforeUpdate,
+  onUpdated,
+  onBeforeUnmount,
+  onUnmounted,
+} from 'vue';
 
 import UserData from './components/UserData';
 
@@ -48,6 +60,15 @@ export default {
       return firstName.value + ' ' + lastName.value;
     });
 
+    onBeforeMount(() => {});
+    onMounted(() => {});
+
+    onBeforeUpdate(() => {});
+
+    onUpdated(() => {});
+
+    onBeforeUnmount(() => {});
+    onUnmounted(() => {});
     return {
       user,
       userName: userRefs.name,
